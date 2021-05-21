@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark barra">
+    <ion-title>
+      {{name}}
+    </ion-title>
+
+    <span *ngIf="!edit" slot="end">
+      <span *ngIf="!discontinued" >
+        <ion-chip class="disponible">
+          <ion-label>Disponible</ion-label>
+        </ion-chip>
+      </span>
+      <span *ngIf="discontinued">
+        <ion-chip class="descontinuado">
+          <ion-label>Descontinuado</ion-label>
+        </ion-chip>
+      </span>
+    </span>
+
+    <ion-button slot="end" fill="clear" style="margin:0px;" color="danger" (click)="salir()">
+      <ion-icon name="close" style="font-size: 28px;"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align: center;">
+    <ion-icon name="stop-circle" class="content"></ion-icon>
+  </div>
+
+  <span *ngIf="!agregar">
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">ID</ion-label>
+    <ion-input [(ngModel)]="id" readonly></ion-input>
+  </ion-item>
+
+</span>
+  <ion-item>
+    <ion-label color="primary" position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="name" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Precio</ion-label>
+    <ion-input [(ngModel)]="price" [readonly]="!edit">$</ion-input>
+  </ion-item>
+
+  <span *ngIf="edit">
+    <ion-item>
+      <ion-label color="primary">Estado</ion-label>
+      <ion-select [(ngModel)]="descontinuado" (ionChange)="descontinuar()">
+        <ion-select-option value="false">Disponible</ion-select-option>
+        <ion-select-option value="true">Descontinuado</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </span>
+
+  <div style="text-align: center; margin: 20px;">
+    <span *ngIf="edit&&!agregar">
+      <ion-button (click)="updateElement()" fill="outline"><b>Editar</b></ion-button>
+    </span>
+  
+    <span *ngIf="agregar">
+      <ion-button (click)="updateElement()" fill="outline"><b>Agregar</b></ion-button>
+    </span>
+  </div>
+
+</ion-content>

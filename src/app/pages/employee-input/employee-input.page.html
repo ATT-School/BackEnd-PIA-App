@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark barra">
+    <ion-title>
+      {{name}} {{familyName}}
+    </ion-title>
+    <ion-button slot="end" fill="clear" style="margin:0px;" color="danger" (click)="salir()">
+      <ion-icon name="close" style="font-size: 28px;"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align: center;">
+  <ion-icon name="person-circle" class="content"></ion-icon>
+</div>
+  <span *ngIf="!agregar">
+  <ion-item>
+    <ion-label color="primary" position="stacked">ID</ion-label>
+    <ion-input type="number" [(ngModel)]="id" readonly></ion-input>
+  </ion-item>
+</span>
+  <ion-item>
+    <ion-label color="primary" position="stacked">Nombre</ion-label>
+    <ion-input type="string" [(ngModel)]="name" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Apellido</ion-label>
+    <ion-input type="string" [(ngModel)]="familyName" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Dirección</ion-label>
+    <ion-textarea type="string" [(ngModel)]="homeAddress" [readonly]="!edit"></ion-textarea>
+  </ion-item>
+
+  <div style="text-align: center; margin: 20px;">
+    <span *ngIf="edit&&!agregar">
+      <ion-button (click)="updateElement()" fill="outline"><b>Editar</b></ion-button>
+    </span>
+  
+    <span *ngIf="agregar">
+      <ion-button (click)="updateElement()" fill="outline"><b>Agregar</b></ion-button>
+    </span>
+  </div>
+
+</ion-content>

@@ -1,0 +1,32 @@
+ion-content{
+    --background: linear-gradient(180deg, var(--ion-color-secondary) 0%, var(--ion-color-tertiary) 100%);
+}
+
+ion-icon.iconTitulo{
+    margin-top: 60px;
+    margin-bottom: 0px;
+    color: white;
+    font-size: 200px;
+}
+
+h3{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.informacion{
+    text-align: center;
+    font-size: 18px;
+    font-family:monospace;
+    font-weight: bold;
+    color: white;
+    margin: 0px 20px;
+}

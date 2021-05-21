@@ -1,0 +1,16 @@
+ion-chip.disponible{
+    --background: green;
+    --color: white;
+}
+
+ion-chip.descontinuado{
+    --background: red;
+    --color: white;
+}
+
+ion-icon.content{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--ion-color-primary);
+    font-size: 200px;
+}

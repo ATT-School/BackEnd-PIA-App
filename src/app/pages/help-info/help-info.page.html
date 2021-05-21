@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark barra">
+    <ion-title>
+      Instrucciones
+    </ion-title>
+    <ion-button slot="end" fill="clear" style="margin:0px;" color="danger" (click)="salir()">
+      <ion-icon name="close" style="font-size: 28px;"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none" style="margin: 10px">
+
+    <ion-item-divider>
+      <ion-label>
+        Visualizar un elemento
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-text>
+        Para visualizar la información completa de algún elemento simplemente debe dar click al elemento que desee.
+        Se abrirá una ventana con todos los campos registrados.<br><br>
+        Para volver a la lista debe dar click en la tacha arriba a la derecha de la ventana.
+      </ion-text>
+    </ion-item>
+
+    <ion-item-divider>
+      <ion-label>
+        Add
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-text>
+        Para agregar un elemento de click en el primer ícono de la barra de herramientas de la parte superior.
+        Se abrirá una ventana, donde deberá colocar los datos correspondientes.
+        Una vez que los datos se encuentren completos, de click en el botón "Agregar".<br><br>
+        Al hacer esto se abrirá un cuadro de diálogo a modo de alerta, especificando si se logró añadir el elemento u
+        ocurrio algún error.
+      </ion-text>
+    </ion-item>
+
+    <ion-item-divider>
+      <ion-label>
+        Update
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-text>
+        Para editar un elemento, dezlice el elemento en cuestión hacia la izquierda. Al hacer esto aparecerán dos opciones,
+        de click al botón amarillo "Editar".
+        Se abrirá una ventana con la información del elemento seleccionado. En esta ventana podrá modificar la información que desee.
+        Una vez termine de editar la información, de click al botón "Editar".<br><br>
+        Al hacer esto se abrirá un cuadro de diálogo a modo de alerta, especificando si se logró añadir el elemento u
+        ocurrio algún error.
+      </ion-text>
+    </ion-item>
+
+    <ion-item-divider>
+      <ion-label>
+        Delete
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-text>
+        Para editar un elemento, dezlice el elemento en cuestión hacia la izquierda. Al hacer esto aparecerán dos opciones,
+        de click al botón amarillo "Borrar".<br><br>
+        Al hacer esto se abrirá un cuadro de diálogo a modo de alerta, especificando si se logró añadir el elemento u
+        ocurrio algún error.
+      </ion-text>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

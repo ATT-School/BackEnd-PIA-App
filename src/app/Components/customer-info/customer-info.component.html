@@ -1,0 +1,18 @@
+<ion-item-sliding>
+  <ion-item detail (click)="abrirModal(false, false)">
+
+    <ion-icon name="person" style="margin-right: 5px;"></ion-icon>
+    <ion-label>{{customer.contactFullName}}</ion-label>
+
+    <div *ngIf="editing">
+      <!-- HERE GOES THE FORM TO EDIT THE EMPLOYEE -->
+      <app-employee-input></app-employee-input>
+      <ion-button (click)="update(customer.id)">Modify!</ion-button>
+    </div>
+  </ion-item>
+
+  <ion-item-options side="end">
+    <ion-item-option color="warning" (click)="update(customer.id)">Editar</ion-item-option>
+    <ion-item-option color="danger" (click)="delete(customer.id)" expandable>Borrar</ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

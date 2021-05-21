@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark barra">
+    <ion-title>
+      {{contactFullName}}
+    </ion-title>
+    <ion-button slot="end" fill="clear" style="margin:0px;" color="danger" (click)="salir()">
+      <ion-icon name="close" style="font-size: 28px;"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align: center;">
+    <ion-icon name="person-circle" class="content"></ion-icon>
+  </div>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">ID</ion-label>
+    <ion-input type="string" [(ngModel)]="id" [readonly]="!agregar"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Nombre</ion-label>
+    <ion-input type="string" [(ngModel)]="contactFullName" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Compañia</ion-label>
+    <ion-input type="string" [(ngModel)]="company" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Puesto</ion-label>
+    <ion-input type="string" [(ngModel)]="contactPosition" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="stacked">Telefono de Contacto</ion-label>
+    <ion-input type="string" [(ngModel)]="contactPhone" [readonly]="!edit"></ion-input>
+  </ion-item>
+
+  <div style="text-align: center; margin: 20px;">
+  <span *ngIf="edit&&!agregar">
+    <ion-button (click)="updateElement()" fill="outline"><b>Editar</b></ion-button>
+  </span>
+
+  <span *ngIf="agregar">
+    <ion-button (click)="updateElement()" fill="outline"><b>Agregar</b></ion-button>
+  </span>
+</div>
+</ion-content>
