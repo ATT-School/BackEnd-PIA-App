@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TareaInfoPage } from 'src/app/pages/tarea-info/tarea-info.page';
+import { HttpProviderService } from 'src/app/Services/http-provider/http-provider.service';
 
 @Component({
   selector: 'app-home-tab',
@@ -9,7 +10,12 @@ import { TareaInfoPage } from 'src/app/pages/tarea-info/tarea-info.page';
 })
 export class HomeTabPage {
 
-  constructor(public modalController: ModalController) {}
+  constructor(private http: HttpProviderService, public modalController: ModalController) {}
+
+  ngOnInit() {
+    this.http.login("admin", "password").subscribe((data) => {console.log(data)});
+  }
+
 
   async abrirModal() {
     const modal = await this.modalController.create({
