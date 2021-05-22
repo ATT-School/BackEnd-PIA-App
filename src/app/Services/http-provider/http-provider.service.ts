@@ -32,6 +32,10 @@ export class HttpProviderService {
     return success.asObservable();
   }
 
+  private getHeaders() {
+    return new HttpHeaders({'Authorization': 'Bearer ' + this.token,});
+  }
+
   getRequest<T>(component: string, endpoint: string = "") {
     let url = this.baseUrl + component + "/" + endpoint;
 
@@ -43,18 +47,18 @@ export class HttpProviderService {
   postRequest(component: string, bodyParams: any) {
     let url = this.baseUrl + component;
 
-    return this.http.post(url, bodyParams);
+    return this.http.post(url, bodyParams, {headers: this.getHeaders()});
   }
 
   putRequest(component: string, endpoint: string = "", bodyParams: any) {
     let url = this.baseUrl + component + "/" + endpoint;
 
-    return this.http.put<string>(url, bodyParams);
+    return this.http.put<string>(url, bodyParams, {headers: this.getHeaders()});
   }
 
   deleteRequest(component: string, endpoint: string = "") {
     let url = this.baseUrl + component + "/" + endpoint;
 
-    return this.http.delete(url);
+    return this.http.delete(url, {headers: this.getHeaders()});
   }
 }
