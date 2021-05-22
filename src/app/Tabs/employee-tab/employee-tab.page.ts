@@ -92,8 +92,8 @@ export class EmployeeTabPage {
 
     this.http.postRequest(this.name, employee)
       .subscribe(
-        (data) => {
-          this.emitAlert("Add",`Successfully Added with id ${data}!`);
+        (data: any) => {
+          this.emitAlert("Add",`Successfully Added with id ${data.id}!`);
           // If we are in the last page, reload to show the "Next Page" button.
           if(!this.nextPage)
             this.reloadCurrentPage();
