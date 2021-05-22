@@ -16,9 +16,14 @@ export class HttpProviderService {
 
   login(username: string, password: string) {
     let url = this.baseUrl + `Login?username=${username}&password=${password}`;
+
+    let params: HttpParams = new HttpParams()
+      .set("username", username)
+      .set("password", password);
+
     let success = new Subject<boolean>();
 
-    this.http.get(url).subscribe(
+    this.http.get(url, {params: params}).subscribe(
       (data: any) => {
         this.token = data.token;
         success.next(true);
@@ -33,15 +38,13 @@ export class HttpProviderService {
   }
 
   private getHeaders() {
-    return new HttpHeaders({'Authorization': 'Bearer ' + this.token,});
+    return new HttpHeaders({'Authorization': 'Bearer ' + this.token});
   }
 
   getRequest<T>(component: string, endpoint: string = "") {
     let url = this.baseUrl + component + "/" + endpoint;
 
-    let headers: HttpHeaders = new HttpHeaders({'Authorization': 'Bearer ' + this.token,});
-
-    return this.http.get<T>(url, {headers: headers});
+    return this.http.get<T>(url, {headers: this.getHeaders()});
   }
 
   postRequest(component: string, bodyParams: any) {
